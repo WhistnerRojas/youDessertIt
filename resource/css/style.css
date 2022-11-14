@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Rubik+Bubbles&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.position-fixed{
+    z-index: 1;
+}
+
+header{
+    position: relative;
+    background-image: url('../img/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    height: 90vh;
+}
+
+.header-banner{
+    position: absolute;
+    color: rgb(236, 236, 236);
+    bottom: 13%;
+    left: 10%;
+    width: 80%;
+    font-weight: 900;
+}
+
+.header-banner h1, .header-banner p{
+    text-shadow: 1px 2px rgb(182, 87, 87);
+}
+
+nav{
+    height: 100px;
+}
+
+.NewsLetter{
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.form-floating{
+    font-size: 10px;
+    color: aqua;
+}
+
+h1, h2, h3, h4, h5, nav li{
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+}
+
+img{
+    pointer-events: none;
+  }
+
+.nav-link{
+    color: aliceblue !important;
+}
+
+.navbar-brand{
+    color: rgb(253, 253, 253);
+    font-weight:  600;
+    font-size: 2em;
+    font-style: italic;
+}
+
+.navbar-brand span{
+    font-family: Script MT;
+}
+
+.navbar-brand:hover{
+    color: rgb(253, 253, 253);
+}
+
+.nav-link:hover{
+    color: rgb(255, 170, 170) !important;
+    text-decoration: underline;
+    transition: .5s;
+}
+
+/*product card*/
+.c-width{
+    width: 100%;
+    margin-bottom: 10px;
+    color: rgb(214, 148, 62) !important;
+    overflow-x: hidden;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.col-sm-7{
+   margin-left: 7% !important;
+}
+
+/* product and services */
+
+.fs-4{
+    color: rgb(214, 148, 62) !important;
+}
+
+
+@media screen and (min-width: 574px) {
+    header{
+        background-size: cover;
+        margin-bottom: 100px;
+    }
+
+    .col-sm-7{
+        margin-left: auto !important;
+    }
+
+    .header-banner{
+        width: 70%;
+        bottom: 10%;
+    }
+
+    /*product card*/
+    .c-width{
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (min-width: 850px) {
+    header{
+        background-size: cover;
+        height: 99vh;
+    }
+
+    .col-sm-7{
+        margin-left: auto !important;
+    }
+
+    .header-banner{
+        width: 40%;
+        bottom: 10%;
+    }
+
+    .c-width{
+        width: 100%;
+    }
+
+}
