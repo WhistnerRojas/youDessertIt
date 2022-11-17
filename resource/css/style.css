@@ -125,12 +125,18 @@ img{
 
 /* product and services */
 
-.fs-4{
+.card-body .fs-3{
     color: rgb(214, 148, 62) !important;
 }
 
 .prodserv:hover img{
     opacity: .8;
+}
+
+/* FAQ */
+
+.accordion-button{
+    font-size: 30px !important;
 }
 
 /* NewsLettter */
