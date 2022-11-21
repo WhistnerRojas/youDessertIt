@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="./resource/css/style.css">
     <link rel="shortcut icon" href="./resource/img/icon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/adea17bdd0.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut'
+        });
+      };
+    </script>
+    <!-- <script src="./resource/js/contactus.js"></script> -->
 </head>
 <body>
     <header>
@@ -24,16 +33,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-4">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#about">About</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#contact">Contact</a>
                   </li>
                 </ul>
                 <form class="d-flex ms-3" role="search">
@@ -201,6 +210,7 @@
         </div>
     </div>
     <!-- About us -->
+    <a name="about"></a>
     <div style="margin: 50px 0 50px 0; padding:40px;"></div>
     <div class="px-4 pt-5 my-5 text-center border-bottom">
       <h1 class="display-4 fw-bold fade-in text-danger">About Us</h1>
@@ -218,24 +228,6 @@
       </div>
     </div>
     <!-- end about us -->
-    <!-- contact -->
-    <div style="margin: 50px 0 50px 0; padding:40px;"></div>
-    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          social media button here
-        </div>
-        <div class="col-lg-6 fs-2">
-          <h1 class="display-4 fw-bold lh-1 mb-3 text-danger">Contact Us</h1>
-          <p class="lead">contact form here</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end contact -->
     <!-- FAQ -->
     <div style="margin: 50px 0 40px 0; padding:50px;"></div>
     <div class="px-4 py-5 my-5 text-center fs-4">
@@ -282,6 +274,57 @@
       </div>
     </div>
     <!-- end FAQ -->
+    <a name="contact"></a>
+    <!-- contact -->
+    <div style="margin: 50px 0 0 0;"></div>
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <h1 class="display-4 fw-bold lh-1 text-danger text-center">Contact Us</h1>
+        <div class="col-10 col-sm-8 col-lg-6">
+          <iframe class="border border-muted rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.2533722984863!2d121.01918261187035!3d14.470135080196696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce455492ffad%3A0x506eab5bc873f37e!2sComelec%20Para%C3%B1aque!5e0!3m2!1sen!2sph!4v1668962405445!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-lg-6 fs-2">
+          <!-- contact form here -->
+          <form class="row g-3 needs-validation" novalidate>
+          <span class="needs-validation">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInput" placeholder="Fullname" name="name" required />
+              <label for="floatingInput" class="text-muted fs-6">Full Name</label>
+              <div class="invalid-feedback fs-6">
+                Please enter your name.
+              </div>
+            </div>
+            <div class="form-floating my-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="email" name="email" required />
+              <label for="floatingInput" class="text-muted fs-6">Email address: name@example.com</label>
+              <div class="invalid-feedback fs-6">
+                Please valid e-mail.
+              </div>
+            </div>
+            <div class="form-floating my-3">
+              <input type="text" class="form-control" id="floatingInput" maxlength="11" name="phone_number" placeholder="Number"/>
+              <label for="floatingInput" class="text-muted fs-6">Phone Number</label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Message Us!" id="floatingTextarea2" style="height: 100px" required></textarea>
+              <label for="floatingTextarea2" class="text-muted fs-6">Message Us!</label>
+              <div class="invalid-feedback fs-6">
+                Compose a your Message.
+              </div>
+            </div>
+            <div class="g-recaptcha my-3" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut"></div>
+            <div class="col-12">
+              <button class="btn btn-outline-success" type="submit">Send your Message</button>
+            </div>
+          <!-- </span> -->
+          </form>
+          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+          </script>
+          <!-- end contact form -->
+        </div>
+      </div>
+    </div>
+    <!-- end contact -->
     <!-- Newsletter -->
     <div class="text-secondary px-4 py-5 newsletter fade-in" style="background-color: rgb(221, 221, 221);">
     <div class="container my-5 bg-white rounded-3">
@@ -306,8 +349,16 @@
     </div>
     </div>
     <!-- End Newsletter -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./resource/js/main.js"></script>
+    <script src="./resource/js/contactus.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init("XtiwVPokCChQlMexK");
+        })();
+    </script>
 </body>
 </html>
