@@ -10,14 +10,25 @@
     <link rel="shortcut icon" href="./resource/img/icon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/adea17bdd0.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
       var onloadCallback = function() {
-        grecaptcha.render('html_element', {
-          'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut'
+      var widgetId1;
+      var widgetnews;
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        widgetnews = grecaptcha.render(document.getElementById('newsletter'), {
+          'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
+          'theme' : 'light',
+          'callback' : 'newsletter'
         });
+        // widgetId2 = grecaptcha.render(document.getElementById('example2'), {
+        //   'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
+        //   'callback' : 'verifyCallback',
+        //   'theme' : 'dark'
+        // });
       };
     </script>
-    <!-- <script src="./resource/js/contactus.js"></script> -->
 </head>
 <body>
     <header>
@@ -148,11 +159,11 @@
             </div>
         </div>
     </div>
-    <div style="margin: 50px 0 50px 0; padding:40px;"></div>
+    <div style="margin: 40px 0 50px 0; padding:40px;"></div>
     <!-- second section -->
     <center><img class="d-block mx-auto mb-2 mt-5 fade-in" src="./resource/img/cherry.png" width="40px" alt="" style="margin: 200px 0 0px 0;"></center>
     <center><h2 class="text-danger display-4 fade-in fw-bold" style="margin:0px 0 20px 0;">Products & Services</h2></center>
-    <div class="container-fluid col-12 mx-auto py-5 mb-5">
+    <div class="container-fluid col-12 mx-auto pt-5">
       <div class="row mx-5 mb-5">
         <div class="col fade-in">
           <div class="text-center px-5">
@@ -164,7 +175,7 @@
         </div>
         <div class="col fade-in">
           <div class="text-center px-5">
-            <h2 class="text-danger mb-3 display-5">Made to Order</h2>
+            <h2 class="text-danger mb-3 display-5">You want It? We Bake It!</h2>
             <div class="col mx-auto">
               <p class="lead mb-5 fs-2">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
             </div>
@@ -173,7 +184,7 @@
       </div>
     </div>
     <div style="margin: 50px 0 50px 0; padding:30px;"></div>
-    <div class="col-sm-12 my-5 mx-2 px-0">
+    <div class="col-sm-12 mt-5 mx-2 px-0">
       <div class="card-group text-center">
           <div class="card border-0 rounded-0 prodserv fade-in">
             <div class="img-zoom">
@@ -211,19 +222,14 @@
     </div>
     <!-- About us -->
     <a name="about"></a>
-    <div style="margin: 50px 0 50px 0; padding:40px;"></div>
-    <div class="px-4 pt-5 my-5 text-center border-bottom">
-      <h1 class="display-4 fw-bold fade-in text-danger">About Us</h1>
+    <div style="margin: 20px 0 20px 0;"></div>
+    <div class="px-4 pt-5 my-5 text-center ">
+      <h1 class="display-4 fw-bold fade-in text-danger ">About Us</h1>
       <div class="col-lg-6 mx-auto fade-in">
         <p class="lead mb-4 fs-2">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
           <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-        </div>
-      </div>
-      <div class="overflow-hidden fade-in" style="max-height: 30vh;">
-        <div class="container px-5">
-          <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
         </div>
       </div>
     </div>
@@ -279,47 +285,63 @@
     <div style="margin: 50px 0 0 0;"></div>
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <h1 class="display-4 fw-bold lh-1 text-danger text-center">Contact Us</h1>
-        <div class="col-10 col-sm-8 col-lg-6">
-          <iframe class="border border-muted rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.2533722984863!2d121.01918261187035!3d14.470135080196696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce455492ffad%3A0x506eab5bc873f37e!2sComelec%20Para%C3%B1aque!5e0!3m2!1sen!2sph!4v1668962405445!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h1 class="display-4 fw-bold lh-1 text-danger text-center fade-in">Contact Us</h1>
+        <div class="col-10 col-sm-8 col-lg-6 fade-in">
+          <iframe class="border border-muted rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.2533722984863!2d121.01918261187035!3d14.470135080196696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce455492ffad%3A0x506eab5bc873f37e!2sComelec%20Para%C3%B1aque!5e0!3m2!1sen!2sph!4v1668962405445!5m2!1sen!2sph"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="col-lg-6 fs-2">
+        <div class="col-lg-6 fs-2 fade-in">
           <!-- contact form here -->
-          <form class="row g-3 needs-validation" novalidate>
+          <form class="row g-3 needs-validation" id="contactfield" onsubmit="sendEnquiry()" novalidate>
           <span class="needs-validation">
-            <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="Fullname" name="name" required />
-              <label for="floatingInput" class="text-muted fs-6">Full Name</label>
-              <div class="invalid-feedback fs-6">
-                Please enter your name.
+            <div class="row">
+              <div class="col-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Fullname" name="name" required />
+                  <label for="floatingInput" class="text-muted fs-6">Name</label>
+                  <div class="invalid-feedback fs-6">
+                    Please enter your name.
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Fullname" name="surname" required />
+                  <label for="floatingInput" class="text-muted fs-6">last Name</label>
+                  <div class="invalid-feedback fs-6">
+                    Please enter your surname.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="form-floating my-3">
               <input type="email" class="form-control" id="floatingInput" placeholder="email" name="email" required />
               <label for="floatingInput" class="text-muted fs-6">Email address: name@example.com</label>
               <div class="invalid-feedback fs-6">
-                Please valid e-mail.
+                Please enter a valid e-mail.
               </div>
             </div>
             <div class="form-floating my-3">
               <input type="text" class="form-control" id="floatingInput" maxlength="11" name="phone_number" placeholder="Number"/>
-              <label for="floatingInput" class="text-muted fs-6">Phone Number</label>
+              <label for="floatingInput" class="text-muted fs-6">Phone Number 09XXXXXXXXX</label>
             </div>
-            <div class="form-floating">
+            <div class="form-floating ">
               <textarea class="form-control" placeholder="Message Us!" id="floatingTextarea2" style="height: 100px" required></textarea>
               <label for="floatingTextarea2" class="text-muted fs-6">Message Us!</label>
               <div class="invalid-feedback fs-6">
-                Compose a your Message.
+                Compose a Message.
               </div>
             </div>
-            <div class="g-recaptcha my-3" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut"></div>
+              <div class="mt-3">
+                <div class="g-recaptcha" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut" data-callback="onloadCallback" id="captchaContact">
+                </div>
+              </div>
+              <div class="fs-6 text-danger" id="captcha">
+              </div>
             <div class="col-12">
-              <button class="btn btn-outline-success" type="submit">Send your Message</button>
+              <button class="btn btn-outline-success mt-1" type="submit" id="enquire">Send Message</button>
             </div>
           <!-- </span> -->
           </form>
-          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-          </script>
           <!-- end contact form -->
         </div>
       </div>
@@ -335,10 +357,10 @@
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
             <div class="input-group mb-3">
               <div class="form-floating fs-5">
-                  <input type="email" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter">
-                  <label for="floatingInputGroup1">Enter your e-mail</a></label>
+                  <input type="email" name="newsletter" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter">
+                  <label for="floatingInputGroup1" id="newsEmail">Enter your e-mail</label>
               </div>
-              <span class="input-group-text border rounded-start rounded-5 bg-danger text-white" onclick="">Subscribe</span>
+              <button class="input-group-text border rounded-start rounded-5 bg-danger text-white" onclick="newsLetter()" id="subscribe">Subscribe</button>
           </div>
           </div>
         </div>
@@ -349,16 +371,52 @@
     </div>
     </div>
     <!-- End Newsletter -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./resource/js/main.js"></script>
-    <script src="./resource/js/contactus.js"></script>
+    <!-- toast -->
+    <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header pink">
+          <strong class="me-auto text-white">Message sent</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
+    <!-- end toast -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-title fs-5" id="staticBackdropLabel">reCAPTCHA</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mx-auto">
+            <div class="g-recaptcha my-3" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut" data-callback="onloadCallback" id="newsletter">
+          </div>
+          <div class="fs-6 text-danger" id="newscaptcha">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-success" onclick="newsLetter()">Proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    </script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
     <script type="text/javascript">
         (function(){
-           emailjs.init("XtiwVPokCChQlMexK");
+           emailjs.init("0WnMJ0BiL31tAZwFW");
         })();
     </script>
+    <!-- <script src="./resource/js/contactus.js"></script> -->
+    <script src="./resource/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
