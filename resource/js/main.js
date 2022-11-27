@@ -35,7 +35,17 @@ function validateEmail(Email) {
   return res.test(Email);
 }
 
-function newsLetter(){
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
+}
+
+function newsLettercheck(){
   const newsTemplate= "template_3zw848m";
   const newsService = "service_8bbpu2b";
   var newsEmail = document.getElementsByClassName("form-control")[6];
@@ -55,45 +65,28 @@ function newsLetter(){
       addAttri.setAttribute("data-bs-toggle", "modal");
       addAttri.setAttribute("data-bs-target", "#staticBackdrop");
       addAttri.click();
-      
-      if(grecaptcha.getResponse(widgetnews).length){
-        console.log(grecaptcha.getResponse(widgetnews));
-      }
-      else{
-        document.getElementById("newscaptcha").innerHTML = "Please Check reCAPTCHA";
-      }
     
-    }
-  
+    } 
+}
 
-      // else if(validateEmail(newsEmail.value)){
-
+function newsSubscribe(){
+  if(grecaptcha.getResponse(widgetId2) == ""){
+    document.getElementById("newscaptcha").innerHTML = "Please Check reCAPTCHA";
+  }
+  else{
+    document.getElementById('modalCls').click();
   //     emailjs.send(newsService, newsTemplate, newsReciever)
   //     .then((res) => {
   //         document.getElementsByClassName("form-control")[6].value;
   //         console.log(res, "email saved");
   //     }
   // ).catch((err) => console.log(err));
-      
-    // data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-
-  // if(grecaptcha.getResponse()== ""){ 
-  //   console.log("what?");
-  // }
-  // else{
-    
-  // }
-  
-}
-
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
+    document.getElementById("headerResponse").textContent = "Thanks for Subscribing";
+    document.getElementById("response").innerHTML = "You definitely deserved a good news!";
     const toast = new bootstrap.Toast(toastLiveExample)
-
     toast.show()
-  })
+    grecaptcha.reset()
+  }
 }
 
   // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -114,9 +107,31 @@ if (toastTrigger) {
           document.getElementById("captcha").innerHTML = "Please Check reCAPTCHA"
         }
         else{
+          document.getElementById("headerResponse").textContent = "Message sent!";
+          document.getElementById("response").innerHTML = "You will recieve a reply from us as soon as possible.";
           const toast = new bootstrap.Toast(toastLiveExample)
           toast.show()
-          sendEnquiry()
+
+          const templateId = "template_23rrysf";
+          const serviceId = "service_8bbpu2b";
+          const fullname = document.getElementsByTagName('input')[1].value .concat(" ".concat(document.getElementsByTagName("input")[2].value))
+      
+          var params = {
+            name : fullname ,
+            email : document.getElementsByTagName("input")[3].value,
+            message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[4].value,
+          };
+        
+          // emailjs.send(serviceId, templateId, params)
+          //     .then((res) => {
+          //         document.getElementsByTagName('input')[1].value;
+          //         document.getElementsByTagName('input')[3].value;
+          //         document.getElementsByTagName('input')[4].value;
+          //         document.getElementsByTagName('textarea')[0].value;
+          //         console.log(res, "message sent");
+          //     }
+          // ).catch((err) => console.log(err));
+
           clrContact()
           grecaptcha.reset()
         }
@@ -125,40 +140,37 @@ if (toastTrigger) {
     }) 
   })()
 
-  function sendEnquiry(){
+  // function sendEnquiry(){
 
-    const templateId = "template_23rrysf";
-    const serviceId = "service_8bbpu2b";
-    const fullname = document.getElementsByTagName('input')[1].value .concat(" ".concat(document.getElementsByTagName("input")[2].value))
-    const captchaResponse = grecaptcha.getResponse(
-                            onloadCallback()
-                );
-    var data = {
-      service_id : serviceId,
-      template_id : templateId,
-      user_id : '0WnMJ0BiL31tAZwFW',
-      template_params : {
-        'username' : 'whistner rojas',
-        'g-recaptcha-response' : `${captchaResponse}`
-      }
-    }
+  //   const templateId = "template_23rrysf";
+  //   const serviceId = "service_8bbpu2b";
+  //   const fullname = document.getElementsByTagName('input')[1].value .concat(" ".concat(document.getElementsByTagName("input")[2].value))
 
-    var params = {
-      name : fullname ,
-      email : document.getElementsByTagName("input")[3].value,
-      message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[4].value,
-    };
+  //   var data = {
+  //     service_id : "service_8bbpu2b",
+  //     template_id : "template_23rrysf",
+  //     user_id : '0WnMJ0BiL31tAZwFW',
+  //     template_params : {
+  //       'username' : 'youdessertitmore@gmail.com',
+  //       'g-recaptcha-response' : onloadCallback()
+  //     }
+  //   }
+
+  //   var params = {
+  //     name : fullname ,
+  //     email : document.getElementsByTagName("input")[3].value,
+  //     message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[4].value,
+  //   };
   
-    emailjs.send(serviceId, templateId, params)
-        .then((res) => {
-            document.getElementsByTagName('input')[1].value;
-            document.getElementsByTagName('input')[3].value;
-            document.getElementsByTagName('input')[4].value;
-            document.getElementsByTagName('textarea')[0].value;
-            console.log(res, "message sent");
-        }
-    ).catch((err) => console.log(err));
-    // console.log(captchaResponse);
+  //   emailjs.send(serviceId, templateId, params)
+  //       .then((res) => {
+  //           document.getElementsByTagName('input')[1].value;
+  //           document.getElementsByTagName('input')[3].value;
+  //           document.getElementsByTagName('input')[4].value;
+  //           document.getElementsByTagName('textarea')[0].value;
+  //           console.log(res, "message sent");
+  //       }
+  //   ).catch((err) => console.log(err));
 
   //   $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
   //   type: 'POST',
@@ -169,4 +181,4 @@ if (toastTrigger) {
   //   }).fail(function(error) {
   //       console.log('Oops... ' + JSON.stringify(error));
   //   });
-  }
+  // }

@@ -12,21 +12,21 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript">
-      var onloadCallback = function() {
+      var verifyCallback = function(response) {
+        // alert(response);
+      };
       var widgetId1;
-      var widgetnews;
+      var widgetId2;
+      var onloadCallback = function() {
         // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
         // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
-        widgetnews = grecaptcha.render(document.getElementById('newsletter'), {
+        widgetId1 = grecaptcha.render('captchaContact', {
           'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
-          'theme' : 'light',
-          'callback' : 'newsletter'
         });
-        // widgetId2 = grecaptcha.render(document.getElementById('example2'), {
-        //   'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
-        //   'callback' : 'verifyCallback',
-        //   'theme' : 'dark'
-        // });
+        widgetId2 = grecaptcha.render(document.getElementById('newsletter'), {
+          'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
+          'callback' : verifyCallback
+        });
       };
     </script>
 </head>
@@ -291,7 +291,7 @@
         </div>
         <div class="col-lg-6 fs-2 fade-in">
           <!-- contact form here -->
-          <form class="row g-3 needs-validation" id="contactfield" onsubmit="sendEnquiry()" novalidate>
+          <form class="row g-3 needs-validation" id="contactfield" action="javascript:grecaptcha.getResponse(widgetId1);" novalidate>
           <span class="needs-validation">
             <div class="row">
               <div class="col-6">
@@ -332,8 +332,7 @@
               </div>
             </div>
               <div class="mt-3">
-                <div class="g-recaptcha" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut" data-callback="onloadCallback" id="captchaContact">
-                </div>
+                <div class="grecaptcha" id="captchaContact"></div>
               </div>
               <div class="fs-6 text-danger" id="captcha">
               </div>
@@ -355,13 +354,15 @@
           <h1 class="display-4 fw-bold lh-1" style="color:  rgb(235, 180, 135);">Subscribe to our NewsLetter</h1>
           <p class="lead my-3">Receive update whenever a Special Offer is Out!</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <div class="input-group mb-3">
-              <div class="form-floating fs-5">
-                  <input type="email" name="newsletter" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter">
-                  <label for="floatingInputGroup1" id="newsEmail">Enter your e-mail</label>
+            <form action="javascript:grecaptcha.reset(widgetId2);"></form>
+              <div class="input-group mb-3">
+                  <div class="form-floating fs-5">
+                      <input type="email" name="newsletter" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter">
+                      <label for="floatingInputGroup1" id="newsEmail">Enter your e-mail</label>
+                  </div>
+                  <button class="input-group-text border rounded-start rounded-5 bg-danger text-white" onclick="newsLettercheck()" id="subscribe">Subscribe</button>
               </div>
-              <button class="input-group-text border rounded-start rounded-5 bg-danger text-white" onclick="newsLetter()" id="subscribe">Subscribe</button>
-          </div>
+            </form>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -376,11 +377,11 @@
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
       <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header pink">
-          <strong class="me-auto text-white">Message sent</strong>
+          <strong class="me-auto text-white" id="headerResponse"></strong>
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="toast-body">
-          Hello, world! This is a toast message.
+        <div class="toast-body" id="response">
+          <!-- Hello, world! This is a toast message. -->
         </div>
       </div>
     </div>
@@ -394,13 +395,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body mx-auto">
-            <div class="g-recaptcha my-3" data-sitekey="6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut" data-callback="onloadCallback" id="newsletter">
-          </div>
+            <div class="grecaptcha" id="newsletter"></div>
           <div class="fs-6 text-danger" id="newscaptcha">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-outline-success" onclick="newsLetter()">Proceed</button>
+            <button id="modalCls" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-success" onclick="newsSubscribe()">Proceed</button>
           </div>
         </div>
       </div>

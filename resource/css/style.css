@@ -147,6 +147,8 @@ iframe{
     height: 450px;
 }
 
+/* toast */
+
 .pink{
     background-color: rgb(248, 134, 134);
 }
@@ -167,7 +169,7 @@ iframe{
     color: red;
 }
 
-.g-recaptcha{
+.grecaptcha{
     overflow: hidden;
 }
 
@@ -197,12 +199,6 @@ iframe{
       width: 100%; 
     }  
   }
-
-/* toast */
-
-.toast-header{
-    background-color: rgb(253, 138, 138);
-}
 
 /* fade in effect */
 
