@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/adea17bdd0.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./resource/js/gallery.js"></script>
     <script type="text/javascript">
       var verifyCallback = function(response) {
         // alert(response);
@@ -30,7 +31,7 @@
       };
     </script>
 </head>
-<body>
+<body onload="retrievePhotos()">
     <header>
       <div class="position-fixed" style="width: 100vw;">
         <nav class="navbar navbar-expand-lg bg-dark bg-opacity-50">
@@ -50,7 +51,7 @@
                     <a class="nav-link" href="#about">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
+                    <a class="nav-link" href="#gallery">Gallery</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -73,35 +74,35 @@
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
           </div>
           <div class="carousel-inner fs-4">
-            <div class="carousel-item active">
+            <div class="carousel-item carouselItem active">
               <img src="./resource/img/banner.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h1>Treat Yourself!</h1>
                 <p>”You can’t buy happiness, but you can buy dessert and that’s kind of the same thing.”</p>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item carouselItem">
               <img src="./resource/img/1.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h1>I'm a Vegetarian</h1>
                 <p>”Vegetables are a must on a diet. I suggest carrot cake, zucchini bread, and pumpkin pie.”</p>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item carouselItem">
               <img src="./resource/img/2.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h1>The meeting.</h1>
                 <p>“A party without cake is really just a meeting.”</p>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item carouselItem">
               <img src="./resource/img/4.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h1>The snack's you'll never be tired off!</h1>
                 <p>"Cookies in the morning, and cookies late at night. Cookies all day, here take another bite!"</p>
               </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item carouselItem">
               <img src="./resource/img/5.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h1>Spread Sweetness!</h1>
@@ -234,8 +235,17 @@
       </div>
     </div>
     <!-- end about us -->
+    <!-- Gallery -->
+    <a name="gallery"></a>
+    <div style="padding: 50px 0 20px 0;"> </div>
+    <h3 class="text-danger display-6 fade-in fw-bold text-center" style="margin:20px 0 20px 0;">Gallery</h3>
+    <div class="container-fluid fade-in mt-5">
+      <div id="containPhotos" class="col-lg-9 = mx-auto"> 
+      </div>
+    </div>
+    <!-- end Gallery -->
     <!-- FAQ -->
-    <div style="margin: 50px 0 40px 0; padding:50px;"></div>
+    <div style="margin: 30px 0 40px 0; padding:50px;"></div>
     <div class="px-4 py-5 my-5 text-center fs-4">
       <h1 class="display-4 fw-bold fade-in mb-3 text-danger">FAQ</h1>
       <div class="col-lg-6 mx-auto">
@@ -283,10 +293,10 @@
     <a name="contact"></a>
     <!-- contact -->
     <div style="margin: 50px 0 0 0;"></div>
-    <div class="container col-xxl-8 px-4 py-5">
+    <div class="container col-xxl-10 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <h1 class="display-4 fw-bold lh-1 text-danger text-center fade-in">Contact Us</h1>
-        <div class="col-10 col-sm-8 col-lg-6 fade-in">
+        <div class="col-10 col-sm-8 col-lg-6 fade-in justify-content-center">
           <iframe class="border border-muted rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.2533722984863!2d121.01918261187035!3d14.470135080196696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce455492ffad%3A0x506eab5bc873f37e!2sComelec%20Para%C3%B1aque!5e0!3m2!1sen!2sph!4v1668962405445!5m2!1sen!2sph"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="col-lg-6 fs-2 fade-in">
@@ -357,7 +367,7 @@
             <form action="javascript:grecaptcha.reset(widgetId2);"></form>
               <div class="input-group mb-3">
                   <div class="form-floating fs-5">
-                      <input type="email" name="newsletter" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter">
+                      <input type="email" name="newsletter" class="form-control border rounded-end rounded-5" placeholder="Subscribe to Newsletter" onclick="">
                       <label for="floatingInputGroup1" id="newsEmail">Enter your e-mail</label>
                   </div>
                   <button class="input-group-text border rounded-start rounded-5 bg-danger text-white" onclick="newsLettercheck()" id="subscribe">Subscribe</button>
@@ -394,7 +404,7 @@
             <span class="modal-title fs-5" id="staticBackdropLabel">reCAPTCHA</span>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body mx-auto">
+        <div class="modal-body mx-auto">
             <div class="grecaptcha" id="newsletter"></div>
           <div class="fs-6 text-danger" id="newscaptcha">
           </div>
@@ -405,6 +415,59 @@
         </div>
       </div>
     </div>
+    </div>
+    <!-- Modal Gallery-->
+  <div id="staticBackdrop2" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="position-relative" style="--bs-bg-opacity: .5;margin: 0;">
+        <button type="button" class="btn-close position-absolute clsColor" data-bs-dismiss="modal" aria-label="Close" onclick="deActivate()"></button>
+    </div>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- modal content -->
+        <div id="carouselExampleIndicators" class="carousel carousel-fade" data-bs-ride="false">
+          <div id="imgSlideHandler" class="carousel-inner" style="max-height: 800px;">
+          <!-- slide content -->
+          </div>
+          <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button> -->
+        </div>
+
+        <!-- content end -->
+      </div>
+    </div>
+    <!-- thumnbnail -->
+
+    <div class="carousel-indicators galleryIndicator bg-dark d-flex justify-content-center mx-auto px-3" style="--bs-bg-opacity: .5; width: 100%;">
+      <!-- slide thumbnail -->
+      <button id="toLeft" class="carousel-control-prev justify-content-start" type="button">
+        <span class="carousel-control-prev-icon" aria-hidden="true" onclick="toScrollLeft()"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <div id="imgIndicator">
+
+      </div>
+      <button id="toRight" class="carousel-control-next justify-content-end" type="button">
+        <span class="carousel-control-next-icon" aria-hidden="true" onclick="toScrollRight()"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    <!-- end thumbnail -->
+  </div>
+  <!-- end modal Gallery -->
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
     </script>
     <script type="text/javascript"

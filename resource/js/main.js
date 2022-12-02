@@ -75,12 +75,12 @@ function newsSubscribe(){
   }
   else{
     document.getElementById('modalCls').click();
-  //     emailjs.send(newsService, newsTemplate, newsReciever)
-  //     .then((res) => {
-  //         document.getElementsByClassName("form-control")[6].value;
-  //         console.log(res, "email saved");
-  //     }
-  // ).catch((err) => console.log(err));
+      emailjs.send(newsService, newsTemplate, newsReciever)
+      .then((res) => {
+          document.getElementsByClassName("form-control")[6].value;
+          console.log(res, "email saved");
+      }
+  ).catch((err) => console.log(err));
     document.getElementById("headerResponse").textContent = "Thanks for Subscribing";
     document.getElementById("response").innerHTML = "You definitely deserved a good news!";
     const toast = new bootstrap.Toast(toastLiveExample)
@@ -122,15 +122,15 @@ function newsSubscribe(){
             message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[4].value,
           };
         
-          // emailjs.send(serviceId, templateId, params)
-          //     .then((res) => {
-          //         document.getElementsByTagName('input')[1].value;
-          //         document.getElementsByTagName('input')[3].value;
-          //         document.getElementsByTagName('input')[4].value;
-          //         document.getElementsByTagName('textarea')[0].value;
-          //         console.log(res, "message sent");
-          //     }
-          // ).catch((err) => console.log(err));
+          emailjs.send(serviceId, templateId, params)
+              .then((res) => {
+                  document.getElementsByTagName('input')[1].value;
+                  document.getElementsByTagName('input')[3].value;
+                  document.getElementsByTagName('input')[4].value;
+                  document.getElementsByTagName('textarea')[0].value;
+                  console.log(res, "message sent");
+              }
+          ).catch((err) => console.log(err));
 
           clrContact()
           grecaptcha.reset()
