@@ -72,7 +72,7 @@ function newsSubscribe(){
     document.getElementById('modalCls').click();
 
     const newsTemplate= "template_3zw848m";
-    const newsService = "sservice_erdiz4k";
+    const newsService = "service_erdiz4k";
     var newsReciever ={
       newsletter : newsEmail.value,
       email : newsEmail.value,
