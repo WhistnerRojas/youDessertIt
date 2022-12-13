@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./temp_resource/css/bootstrap.min.css"> -->
+    <script src="https://kit.fontawesome.com/adea17bdd0.js" crossorigin="anonymous"></script>
+    <script src="./resource/js/gallery.js"></script>
+    <link rel="stylesheet" href="./resource/css/style.css">
+</head>
+<body onload="retrieveCities()">
+<!-- <body> -->
+  <!-- <div class="position-fixed" style="width: 100vw;"> -->
+    <nav class="navbar navbar-expand-lg bg-dark bg-opacity-50">
+        <div class="container-fluid col-sm-11">
+          <a class="navbar-brand fs-1" href="#">
+            <img src="./resource/img/logo.png" width="20%" alt="You Dessert It">You <span>Dessert</span> It!
+          </a>
+          <button class="navbar-toggler btn btn-danger border border-danger rounded-1 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars fs-1 text-white"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-4">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#gallery">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+            <a href="./order.html" class="btn btn-danger ms-4 py-2 px-3">Order Now!</a>
+          </div>
+        </div>
+      </nav>
+    <!-- </div> -->
+  <div id="orderRecieved" class="container col-10 py-5">
+    <div class="progress bg-white">
+      <div id="progress-bar" class="progress-bar" data-bs-target="#carouselExampleControls" role="progressbar" aria-label="Basic example" style="width: 33.3%" aria-valuenow="33.3" aria-valuemin="33.3" aria-valuemax="100"></div>
+    </div>
+  </div>
+  <div id="orderRecieved" class="container-fluid col-10 mx-auto">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-touch="false" data-bs-ride="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-lg-6">
+              <!--  -->
+            </div>
+            <div class="col-lg-6">
+              <h2 class="text-danger mb-3">Personal Information</h2>
+              <!-- <form action=""> -->
+              <div id="personInfo" class="container-fluid mx-auto p-3 p-md-4 border rounded-3 bg-light">
+              <div class="row my-2">
+                <div class="col-md-6 mb-2">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputName" placeholder="First Name" aria-label="firstname" aria-describedby="firstname" required>
+                    <label for="floatingInputName">First Name</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Surname" id="floatingInputLastName" aria-label="surname" aria-describedby="surname" required>
+                    <label for="floatingInputLastName">Last name</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-md-6 mb-2">
+                  <div class="form-floating">
+                    <input type="email" id="floatingInputEmail" class="form-control" placeholder="username@example.com" aria-label="email" aria-describedby="email" required>
+                    <label for="floatingInputEmail">email@example.com</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputNumber" class="form-control" placeholder="+639XXXXXXXXX " aria-label="phoneNum" aria-describedby="phoneNum" maxlength="10" required>
+                    <label for="floatingInputNumber">Phone Number (+63)</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-6 col-lg-4">
+                  <div class="form-floating">
+                    <input type="date" id="floatingInputBirth" class="form-control" placeholder="Birth" aria-label="birth" aria-describedby="birth" required>
+                    <label for="floatingInputBirth">Birth date</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-6 col-lg-4">
+                  <div class="form-floating">
+                    <select id="floatingInputGender" class="form-select" aria-label="Gender" required>
+                      <option value="" selected>Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                    <label for="floatingInputGender">Select</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-4 col-lg-2">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputLot" class="form-control" placeholder="#" aria-label="lotNum" aria-describedby="lotNum" maxlength="4" required>
+                    <label for="floatingInputLot">Lot #</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-4 col-lg-7">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputBldg" class="form-control" placeholder="Building name" aria-label="bldgName" aria-describedby="bldgName" required>
+                    <label for="floatingInputBldg">Building Name</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-4 col-lg-3">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputFloor" class="form-control" placeholder="#" aria-label="floor" aria-describedby="floor" maxlength="2">
+                    <label for="floatingInputFloor">Floor #</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-6 col-lg-6">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputStreet" class="form-control" placeholder="street" aria-label="street" aria-describedby="street" required>
+                    <label for="floatingInputStreet">Street</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-6 col-lg-6">
+                  <div class="form-floating">
+                    <input type="text" id="floatingInputBrgy" class="form-control" placeholder="Barangay" aria-label="brgy" aria-describedby="brgy" required>
+                    <label for="floatingInputBrgy">Barangay</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-4 col-lg-4">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="1234" aria-label="zip" aria-describedby="zip" maxlength="4" required>
+                    <label for="floatingInputZip">Zip Code</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+                <div class="col-8 col-lg-">
+                  <div class="form-floating">
+                    <select id="city" class="form-select" aria-label="city" required>
+                      <option value="" selected>City</option>
+                      
+                    </select>
+                    <label for="floatingInputCity">Select</label>
+                    <small id="validation" class="text-danger"></small>
+                  </div>
+                </div>
+              </div>
+              </div>
+            <!-- </form> -->
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <h2 class="text-danger text-center">You want it? We bake it!</h2>
+          <div class="row">
+            <div class="col-md text-sm-start text-md-center text-lg-end">
+              <!-- <div class="col-auto my-2"> -->
+                <button id="order" class="btn btn-light my-1" name="fullFondant"><span class="fs-4">Full Fondant Cake</span></button>
+              <!-- </div> -->
+              <!-- <div class="col-auto my-2"> -->
+                <button id="order" class="btn btn-light my-1" name="numberCake"><span class="fs-4">Number Cake</span></button>
+              <!-- </div> -->
+              <!-- <div class="col-auto my-2"> -->
+                <button id="order" class="btn btn-light my-1" name="CakesCupcake"><span class="fs-4">Cakes & Cupcakes</span></button>
+              <!-- </div> -->
+              <!-- <div class="col-auto my-2"> -->
+                <button id="order" class="btn btn-light my-1" name="Cookies"><span class="fs-4">Cookies</span></button>
+              <!-- </div> -->
+              <!-- <div class="col-auto my-2"> -->
+                <button id="order" class="btn btn-light my-1" name="Cupcake"><span class="fs-4">Cupcakes</span></button>
+              <!-- </div> -->
+            </div>
+            <div class="col-lg-10">
+              <div class="p-3 p-md-4 border rounded-3 bg-light">
+                <div id="orderInfo" class="row">
+                  <div id="orderCake" class="col-auto">
+                    <div id="fondant" class="row d-none">
+                      <div class="col">
+                        <div class="form-floating mb-2">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="fondant" max="2">
+                          <label for="floatingInput">Full Fondant (pcs)</label>
+                          <small id="validation" class="text-danger"></small>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-floating mb-2">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="fondant" maxlength="1">
+                          <label for="floatingInput">Layer(s)</label>
+                          <small id="validation" class="text-danger"></small>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-floating mb-2">
+                          <select id="floatingInputFlavor" class="form-select" name="fondantFlavor" aria-label="Flavor" required>
+                          <option value="choco">Chocolate</option>
+                          <option value="strawberry">strawberry</option>
+                          </select>
+                          <label for="floatingInput">Flavor</label>
+                          <small id="validation" class="text-danger"></small>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="numberCake" class="row d-none">
+                      <div class="col">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="numberCakepcs" placeholder="numberCakepcs" max="2">
+                        <label for="floatingInput">Number Cake (pcs)</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md-3">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="numberCake" placeholder="numberCake" maxlength="2">
+                        <label for="floatingInput">Cake Number</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="numberFlavor" aria-label="Flavor" required>
+                          <option value="choco">Chocolate</option>
+                          <option value="strawberry">strawberry</option>
+                        </select>
+                        <label for="floatingInput">Flavor</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                    </div>
+                    <div id="CakeCupcake" class="row d-none">
+                      <div class="col-md">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="Cakepcs" placeholder="Cakepcs" max="2">
+                        <label for="floatingInput">Piece(s) / Cake</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md-4">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="cupcakePcs" placeholder="cupcakePcs" maxlength="1">
+                        <label for="floatingInput">Piece(s) / Cupcake</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="CakeCupcakeFlavor" aria-label="Flavor" required>
+                          <option value="choco">Chocolate</option>
+                          <option value="strawberry">strawberry</option>
+                          <option value="assorted">Assorted</option>
+                        </select>
+                        <label for="floatingInput">Flavor</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                    </div>
+                    <div id="Cookies" class="row d-none">
+                      <div class="col-md">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="cookieWrap" aria-label="Flavor" required>
+                          <option value="box">Box</option>
+                          <option value="plasticWrap">plastic wrapper</option>
+                          <option value="smallBox">Small boxes</option>
+                        </select>
+                        <label for="floatingInput">Cookie Wrap</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md-4">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="cookiePcs" placeholder="cupcakePcs" maxlength="3">
+                        <label for="floatingInput">Cookies (pcs)</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="cookieFlavor" aria-label="Flavor" required>
+                          <option value="choco">Chocolate</option>
+                          <option value="strawberry">strawberry</option>
+                          <option value="assorted">Assorted</option>
+                        </select>
+                        <label for="floatingInput">Flavor</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                    </div>
+                    <div id="Cupcakes" class="row d-none">
+                      <div class="col-md-3">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="packaging" aria-label="packaging" required>
+                          <option value="box">Box</option>
+                          <option value="smallBox">Small boxes</option>
+                        </select>
+                        <label for="floatingInput">Packaging</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md-4">
+                      <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" name="cookiePcs" placeholder="cupcakePcs" maxlength="3">
+                        <label for="floatingInput">Cupcake (pcs)</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                      <div class="col-md">
+                      <div class="form-floating mb-2">
+                        <select id="floatingInputFlavor" class="form-select" name="cookieFlavor" aria-label="Flavor" required>
+                          <option value="choco">Chocolate</option>
+                          <option value="strawberry">strawberry</option>
+                          <option value="assorted">Assorted</option>
+                        </select>
+                        <label for="floatingInput">Flavor</label>
+                        <small id="validation" class="text-danger"></small>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg">
+                    <div class="form-floating mb-2">
+                      <input type="input" class="form-control" id="floatingInput" placeholder="Occation">
+                      <label for="floatingInput">Occation</label>
+                      <small id="validation" class="text-danger"></small>
+                    </div>
+                    <div class="form-floating mb-2">
+                      <input type="input" class="form-control" id="floatingInput" placeholder="Theme">
+                      <label for="floatingInput">Theme</label>
+                      <small id="validation" class="text-danger"></small>
+                    </div>
+                    <div class="form-floating mb-2">
+                      <input type="input" class="form-control" id="floatingInput" placeholder="Health Concerns">
+                      <label for="floatingInput">Ingredients to avoid / Concerns</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                      <textarea class="form-control" id="floatingInput" placeholder="Health Concerns" name="" id="" cols="30" rows="30" style="height: 90px;"></textarea>
+                      <label for="floatingInput">Other Instructions</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <h2 class="text-lg-center text-danger">Billing address</h2>
+          <div class="container">
+            <div class="row g-5">
+              <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-info">Your cart</span>
+                  <span class="badge bg-danger rounded-pill">3</span>
+                </h4>
+                <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Product name</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$12</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Second product</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$8</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Third item</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$5</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                      <h6 class="my-0">Promo code</h6>
+                      <small>EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">−$5</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$20</strong>
+                  </li>
+                </ul>
+        
+                <!-- <form class="card p-2"> -->
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Promo code">
+                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                  </div>
+                <!-- </form> -->
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <!-- <form class="needs-validation" novalidate> -->
+        
+                    <div class="col-12">
+                      <label for="address" class="form-label">Shipping address</label>
+                      <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                      <div id="invalid" class="invalid-feedback">
+                        Please enter your shipping address.
+                      </div>
+                    </div>
+        
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="same-address">
+                      <label class="form-check-label" for="same-address">Shipping address is the same as my Personal information address</label>
+                    </div>
+        
+                  <hr class="mt-4 mb-2">
+        
+                  <h5 class="mb-3">Payment</h5>
+        
+                  <div class="my-3">
+                    <div class="row text-start">
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                          <label class="form-check-label" for="credit">Credit card</label>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                          <label class="form-check-label" for="debit">Debit card</label>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <div class="form-check">
+                          <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                          <label class="form-check-label" for="paypal">PayPal</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="row gy-3">
+                    <div class="col-md-6">
+                      <label for="cc-name" class="form-label">Name on card</label>
+                      <input type="text" class="form-control" id="cc-name" placeholder="full name as displayed on card" required>
+                      <div id="invalid" class="invalid-feedback">
+                        Name on card is required
+                      </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                      <label for="cc-number" class="form-label">Credit card number</label>
+                      <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                      <div id="invalid" class="invalid-feedback">
+                        Credit card number is required
+                      </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <label for="cc-expiration" class="form-label">Expiration</label>
+                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                      <div id="invalid" class="invalid-feedback">
+                        Expiration date required
+                      </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <label for="cc-cvv" class="form-label">CVV</label>
+                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                      <div id="invalid" class="invalid-feedback">
+                        Security code required
+                      </div>
+                    </div>
+                  </div>
+        
+                  <hr class="my-4">
+        
+                  <!-- <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button> -->
+                <!-- </form> -->
+              </div>
+            </div> <!--end-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <!--  -->
+        </div>
+        <div class="col-lg-6 mb-5">
+          <div class="row mx-auto text-center mt-2">
+            <div class="col-auto mb-2" id="prev">
+              <button class="btn btn-danger" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" disabled>
+                Back
+              </button>
+            </div>
+            <div class="col-auto" id="next" style="margin-right: 50%;">
+              <button class="btn btn-success" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" disabled>
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <script type="text/javascript">
+    (function(){
+       emailjs.init("wBu3LHGSXu1wC3AFL");
+    })();
+</script>
+    <script src="./resource/js/main.js"></script>
+    <script src="./resource/js/order.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./temp_resource/js/bootstrap.min.js"></script> -->
+</body>
+</html>

@@ -4,17 +4,17 @@
 
 
 function retrievePhotos() { 
-    let xhr = new XMLHttpRequest();
-    let dbUrl = `https://youdessertgallery-default-rtdb.asia-southeast1.firebasedatabase.app/cake.json`
-    xhr.open("GET", dbUrl);
-    xhr.setRequestHeader('Content-type', 'application/json');
-    xhr.onreadystatechange = function () { 
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            const photos = JSON.parse(xhr.responseText);
-            imageLayout(photos);
-         }
-    }
-    xhr.send();
+    // let xhr = new XMLHttpRequest();
+    // let dbUrl = `https://youdessertgallery-default-rtdb.asia-southeast1.firebasedatabase.app/cake.json`
+    // xhr.open("GET", dbUrl);
+    // xhr.setRequestHeader('Content-type', 'application/json');
+    // xhr.onreadystatechange = function () { 
+    //     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    //         const photos = JSON.parse(xhr.responseText);
+    //         imageLayout(photos);
+    //      }
+    // }
+    // xhr.send();
 }
 
 function imageLayout(photos){
@@ -28,7 +28,7 @@ function imageLayout(photos){
         let div = document.createElement("div");
         let img = document.createElement("img");
         let linkToModal = document.createElement("a");
-        console.log(photos[key]);
+
         // gallery layout
         div.setAttribute("class", "gallery-zoom");
         img.setAttribute("src", photos[key]['img-thumb-url']);
