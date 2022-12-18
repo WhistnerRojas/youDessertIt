@@ -26,7 +26,6 @@
         });
         widgetId2 = grecaptcha.render(document.getElementById('newsletter'), {
           'sitekey' : '6Lf1PSIjAAAAAP3BrC2OIgvlfSlpG4oyW6o_qfut',
-          'callback' : verifyCallback
         });
       };
     </script>
@@ -36,7 +35,7 @@
       <div class="position-fixed" style="width: 100vw;">
         <nav class="navbar navbar-expand-lg bg-dark bg-opacity-50">
             <div class="container-fluid col-sm-11">
-              <a class="navbar-brand fs-1" href="index.html">
+              <a class="navbar-brand fs-1" href="./index.html">
                 <img src="./resource/img/logo.png" width="20%" alt="You Dessert It">You <span>Dessert</span> It!
               </a>
               <button class="navbar-toggler btn btn-danger border border-danger rounded-1 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,16 +44,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-4">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="./index.html#about">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#gallery">Gallery</a>
+                    <a class="nav-link" href="./index.html#gallery">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="./index.html#contact">Contact</a>
                   </li>
                 </ul>
                 <a href="./order.html" class="btn btn-danger ms-4 py-2 px-3">Order Now!</a>
@@ -122,7 +121,7 @@
     <div class="container-fluid ms-auto">
         <div class="col-9 mx-auto">
             <!--first section-->
-            <h2 class="my-4 text-danger display-4 fw-bold fade-in text-center">Cake and Pastries that you deserves!</h2>
+            <h2 class="my-4 text-danger display-4 fw-bold fade-in text-center">Cake and Pastries that you deserve!</h2>
             <div class="row">
                 <div class="col-md">
                     <div class="card c-width fs-6 border-0 rounded-0 fade-in">
@@ -324,7 +323,7 @@
         </div>
         <div class="col-lg-6 fs-2 fade-in">
           <!-- contact form here -->
-          <form class="row g-3 needs-validation" id="contactfield" action="javascript:grecaptcha.getResponse(widgetId1);" novalidate>
+          <form class="row g-3 needs-validation" id="contactfield" novalidate>
           <span class="needs-validation">
             <div class="row">
               <div class="col-6">
@@ -356,7 +355,7 @@
             <div class="form-floating my-3">
               <input type="text" class="form-control" id="floatingInput" maxlength="13" name="phone_number" placeholder="Number"/>
               <label for="floatingInput" class="text-muted fs-6">Phone Number 09XXXXXXXXX</label>
-              <div class="fs-6" id="phoneNumValid">
+              <div class="invalid-feedback fs-6" id="phoneNumValid">
               </div>
             </div>
             <div class="form-floating ">
