@@ -80,7 +80,7 @@ function newsSubscribe(){
 
       emailjs.send(newsService, newsTemplate, newsReciever)
       .then((res) => {
-          document.getElementsByClassName("form-control")[6].value;
+          document.getElementsByClassName("form-control")[5].value;
           console.log(res, "email saved");
       }
   ).catch((err) => console.log(err));
@@ -103,9 +103,9 @@ function newsSubscribe(){
     Array.from(forms).forEach(form => {
       form.addEventListener('submit', event => {
         const phoneNum = document.getElementsByTagName("input")[3].value;
+        event.preventDefault()
         if (!form.checkValidity()) {
           event.stopPropagation()
-          event.preventDefault()
         }else if( grecaptcha.getResponse().length == ''){
           document.getElementById("captcha").innerHTML = "Please Check reCAPTCHA"
         }else if(phoneNum != ""){
@@ -113,6 +113,7 @@ function newsSubscribe(){
             sendEnquiry()
           }else{
             document.getElementById("phoneNumValid").innerHTML = "Please input a valid 11 digit contact number or you can leave it empty";
+            document.getElementById("phoneNumValid").classList.add('d-block');
           }
         }
         else{
@@ -123,32 +124,35 @@ function newsSubscribe(){
       )
     })
   })()
+
+
   function sendEnquiry(){
 
     const templateId = "template_23rrysf";
     const serviceId = "service_erdiz4k";
-    const fullname = document.getElementsByTagName('input')[1].value .concat(" ".concat(document.getElementsByTagName("input")[2].value))
+    const fullname = document.getElementsByTagName('input')[0].value .concat(" ".concat(document.getElementsByTagName("input")[1].value))
 
-    var data = {
-      service_id : "service_8bbpu2b",
-      template_id : "template_23rrysf",
-      user_id : '0WnMJ0BiL31tAZwFW',
-      // template_params : {
-      //   'username' : 'youdessertitmore@gmail.com',
-      //   'g-recaptcha-response' : onloadCallback()
-      // }
-    }
+    // var data = {
+    //   service_id : "service_8bbpu2b",
+    //   template_id : "template_23rrysf",
+    //   user_id : '0WnMJ0BiL31tAZwFW',
+    //   // template_params : {
+    //   //   'username' : 'youdessertitmore@gmail.com',
+    //   //   'g-recaptcha-response' : onloadCallback()
+    //   // }
+    // }
 
     var params = {
       name : fullname ,
-      email : document.getElementsByTagName("input")[3].value,
-      message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[4].value,
+      email : document.getElementsByTagName("input")[2].value,
+      message : document.getElementsByTagName("textarea")[0].value + " <br> Phone Number: " + document.getElementsByTagName("input")[3].value,
     };
   
     emailjs.send(serviceId, templateId, params)
         .then((res) => {
+            document.getElementsByTagName('input')[0].value;
             document.getElementsByTagName('input')[1].value;
-            document.getElementsByTagName('input')[3].value;
+            document.getElementsByTagName('input')[2].value;
             document.getElementsByTagName('input')[4].value;
             document.getElementsByTagName('textarea')[0].value;
             console.log(res, "message sent");

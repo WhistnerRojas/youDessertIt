@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
 body{
     margin: 0;
@@ -47,8 +47,8 @@ header{
 }
 
 h1, h2, h3, h4, h5, nav li{
-    font-family: 'Dancing Script', cursive;
-    font-weight: 900;
+    font-family:  'Itim', cursive;
+    font-weight: 300;
 }
 
 img{
