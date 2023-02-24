@@ -55,16 +55,15 @@ function newsLettercheck(){
       newsEmail.className +=" border-danger";
       newsErr.innerHTML = "Please enter a valid email address"
   }else if(validateEmail(newsEmail.value)){
-
       var addAttri = document.getElementById("subscribe");
       addAttri.setAttribute("data-bs-toggle", "modal");
       addAttri.setAttribute("data-bs-target", "#staticBackdrop");
       addAttri.click();
-    
     } 
 }
 
 function newsSubscribe(){
+  var newsEmail = document.getElementsByClassName("form-control")[5];
   if(grecaptcha.getResponse(widgetId2) == ""){
     document.getElementById("newscaptcha").innerHTML = "Please Check reCAPTCHA";
   }
